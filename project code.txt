@@ -1,0 +1,1434 @@
+from tkinter import *
+from tkinter import messagebox
+from tkinter.ttk import Treeview
+from PIL import ImageTk, Image
+import pymysql
+
+conn = pymysql.connect(host="localhost", user="root", password="root", database="rail")
+c = conn.cursor()
+mycursor = conn.cursor()
+
+
+def ie():
+    tkt = Toplevel()
+    tkt.geometry("1350x720")
+    tkt.state('zoomed')
+    tkt.title("railway management system")
+
+    canvas = Canvas(tkt, width=1450, height=750)
+    image = ImageTk.PhotoImage(Image.open("C:\\Users\\Arun Rathore\\PycharmProjects\\RMS\\Train1.jpg"))
+    canvas.create_image(0, 0, anchor=NW, image=image)
+    canvas.pack()
+
+    label_1 = Label(tkt, text="STATION CODE", width=20, font=("bold", 20), bg='#455A64')
+    label_1.place(relx=0.001, rely=0.001, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="STATION NAME", width=20, font=("bold", 20), bg='#455A64')
+    l2.place(relx=0.2, rely=0.001, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="ARRIVAL TIME", width=20, font=("bold", 20), bg='#455A64')
+    l2.place(relx=0.4, rely=0.001, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="DEPARTURE TIME", width=20, font=("bold", 20), bg='#455A64')
+    l2.place(relx=0.6, rely=0.001, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="DISTANCE", width=20, font=("bold", 20), bg='#455A64')
+    l2.place(relx=0.8, rely=0.001, relwidth=0.2, relheight=0.1)
+
+    label_3 = Label(tkt, text="SBC", width=20, font=("bold", 20))
+    label_3.place(relx=0.001, rely=0.1, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="SSPN", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.2, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="DMM", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.3, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="ATP", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.4, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="RC", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.5, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="NGP", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.6, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="BPL", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.7, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="NZM", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.8, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="banglore", width=20, font=("bold", 20))
+    l2.place(relx=0.2, rely=0.10, relwidth=0.2, relheight=0.1)
+
+    label_4 = Label(tkt, text="Starts", width=20, font=("bold", 20))
+    label_4.place(relx=0.4, rely=0.10, relwidth=0.2, relheight=0.1)
+
+    label_5 = Label(tkt, text="20:20", width=20, font=("bold", 20))
+    label_5.place(relx=0.6, rely=0.10, relwidth=0.2, relheight=0.1)
+
+    label_6 = Label(tkt, text="0 km", width=20, font=("bold", 20))
+    label_6.place(relx=0.8, rely=0.10, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="Sai P Nilayam.", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.20, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="22:38", width=20, font=("bold", 20))
+    label_7.place(relx=0.4, rely=0.20, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="22:40", width=20, font=("bold", 20))
+    label_7.place(relx=0.6, rely=0.20, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="159 km.", width=20, font=("bold", 20))
+    label_7.place(relx=0.8, rely=0.20, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="Dharamavarm.", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.30, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="23:54", width=20, font=("bold", 20))
+    label_7.place(relx=0.4, rely=0.30, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="23:55", width=20, font=("bold", 20))
+    label_7.place(relx=0.6, rely=0.30, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="192 km", width=20, font=("bold", 20))
+    label_7.place(relx=0.8, rely=0.30, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="Anantapur", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.40, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="02:44", width=20, font=("bold", 20))
+    label_7.place(relx=0.4, rely=0.40, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="02:46", width=20, font=("bold", 20))
+    label_7.place(relx=0.6, rely=0.40, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="414 km", width=20, font=("bold", 20))
+    label_7.place(relx=0.8, rely=0.40, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="Raichur", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.50, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="04:44", width=20, font=("bold", 20))
+    label_7.place(relx=0.4, rely=0.50, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="04:45", width=20, font=("bold", 20))
+    label_7.place(relx=0.6, rely=0.50, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="559 km", width=20, font=("bold", 20))
+    label_7.place(relx=0.8, rely=0.50, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="Nagpur", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.60, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="07:35", width=20, font=("bold", 20))
+    label_7.place(relx=0.4, rely=0.60, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="07:36", width=20, font=("bold", 20))
+    label_7.place(relx=0.6, rely=0.60, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="705 km", width=20, font=("bold", 20))
+    label_7.place(relx=0.8, rely=0.60, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="Bhopal", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.70, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="09:28", width=20, font=("bold", 20))
+    label_7.place(relx=0.4, rely=0.70, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="09:30.", width=20, font=("bold", 20))
+    label_7.place(relx=0.6, rely=0.70, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="837 km.", width=20, font=("bold", 20))
+    label_7.place(relx=0.8, rely=0.70, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="Nizamuddin", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.80, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="15:25", width=20, font=("bold", 20))
+    label_7.place(relx=0.4, rely=0.80, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="Ends", width=20, font=("bold", 20))
+    label_7.place(relx=0.6, rely=0.80, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="1282 km", width=20, font=("bold", 20))
+    label_7.place(relx=0.8, rely=0.80, relwidth=0.2, relheight=0.1)
+
+    btn6 = Button(tkt, text='quit', bg='#455A64', font="Courier 30", fg='white', command=tkt.destroy)
+    btn6.place(relx=0.001, rely=0.91, relwidth=0.18, relheight=0.08)
+
+    btn5 = Button(tkt, text='BACK', font="Courier 30", bg='#455A64', fg='white', command=tkt.destroy)
+    btn5.place(relx=0.83, rely=0.91, relwidth=0.18, relheight=0.08)
+
+    tkt.mainloop()
+
+
+def ne():
+    tkt = Toplevel()
+    tkt.geometry("1350x720")
+    tkt.state('zoomed')
+    tkt.title("railway management system")
+
+    canvas = Canvas(tkt, width=1450, height=750)
+    image = ImageTk.PhotoImage(Image.open("C:\\Users\\Arun Rathore\\PycharmProjects\\RMS\\Train1.jpg"))
+    canvas.create_image(0, 0, anchor=NW, image=image)
+    canvas.pack()
+
+    label_1 = Label(tkt, text="STATION CODE", width=20, font=("bold", 20), bg='#455A64')
+    label_1.place(relx=0.001, rely=0.001, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="STATION NAME", width=20, font=("bold", 20), bg='#455A64')
+    l2.place(relx=0.2, rely=0.001, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="ARRIVAL TIME", width=20, font=("bold", 20), bg='#455A64')
+    l2.place(relx=0.4, rely=0.001, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="DEPARTURE TIME", width=20, font=("bold", 20), bg='#455A64')
+    l2.place(relx=0.6, rely=0.001, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="DISTANCE", width=20, font=("bold", 20), bg='#455A64')
+    l2.place(relx=0.8, rely=0.001, relwidth=0.2, relheight=0.1)
+
+    label_3 = Label(tkt, text="SBC", width=20, font=("bold", 20))
+    label_3.place(relx=0.001, rely=0.1, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="SSPN", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.2, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="DMM", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.3, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="ATP", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.4, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="RC", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.5, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="NGP", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.6, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="BPL", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.7, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="NZM", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.8, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="banglore", width=20, font=("bold", 20))
+    l2.place(relx=0.2, rely=0.10, relwidth=0.2, relheight=0.1)
+
+    label_4 = Label(tkt, text="Starts", width=20, font=("bold", 20))
+    label_4.place(relx=0.4, rely=0.10, relwidth=0.2, relheight=0.1)
+
+    label_5 = Label(tkt, text="20:20", width=20, font=("bold", 20))
+    label_5.place(relx=0.6, rely=0.10, relwidth=0.2, relheight=0.1)
+
+    label_6 = Label(tkt, text="0 km", width=20, font=("bold", 20))
+    label_6.place(relx=0.8, rely=0.10, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="Sai P Nilayam", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.20, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="22:38", width=20, font=("bold", 20))
+    label_7.place(relx=0.4, rely=0.20, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="22:40", width=20, font=("bold", 20))
+    label_7.place(relx=0.6, rely=0.20, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="159 km.", width=20, font=("bold", 20))
+    label_7.place(relx=0.8, rely=0.20, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="Dharamavarm", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.30, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="23:54", width=20, font=("bold", 20))
+    label_7.place(relx=0.4, rely=0.30, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="23:55", width=20, font=("bold", 20))
+    label_7.place(relx=0.6, rely=0.30, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="192 km", width=20, font=("bold", 20))
+    label_7.place(relx=0.8, rely=0.30, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="Anantapur", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.40, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="02:44", width=20, font=("bold", 20))
+    label_7.place(relx=0.4, rely=0.40, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="02:46", width=20, font=("bold", 20))
+    label_7.place(relx=0.6, rely=0.40, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="414 km", width=20, font=("bold", 20))
+    label_7.place(relx=0.8, rely=0.40, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="Raichur", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.50, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="04:44", width=20, font=("bold", 20))
+    label_7.place(relx=0.4, rely=0.50, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="04:45", width=20, font=("bold", 20))
+    label_7.place(relx=0.6, rely=0.50, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="559 km", width=20, font=("bold", 20))
+    label_7.place(relx=0.8, rely=0.50, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="Nagpur", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.60, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="07:35", width=20, font=("bold", 20))
+    label_7.place(relx=0.4, rely=0.60, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="07:36", width=20, font=("bold", 20))
+    label_7.place(relx=0.6, rely=0.60, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="705 km", width=20, font=("bold", 20))
+    label_7.place(relx=0.8, rely=0.60, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="Bhopal", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.70, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="09:28", width=20, font=("bold", 20))
+    label_7.place(relx=0.4, rely=0.70, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="09:30.", width=20, font=("bold", 20))
+    label_7.place(relx=0.6, rely=0.70, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="837 km.", width=20, font=("bold", 20))
+    label_7.place(relx=0.8, rely=0.70, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="Nizamuddin", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.80, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="15:25", width=20, font=("bold", 20))
+    label_7.place(relx=0.4, rely=0.80, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="Ends", width=20, font=("bold", 20))
+    label_7.place(relx=0.6, rely=0.80, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="1282 km", width=20, font=("bold", 20))
+    label_7.place(relx=0.8, rely=0.80, relwidth=0.2, relheight=0.1)
+
+    btn6 = Button(tkt, text='quit', bg='#455A64', font="Courier 30", fg='white', command=tkt.destroy)
+    btn6.place(relx=0.001, rely=0.91, relwidth=0.18, relheight=0.08)
+
+    btn5 = Button(tkt, text='BACK', font="Courier 30", bg='#455A64', fg='white', command=tkt.destroy)
+    btn5.place(relx=0.83, rely=0.91, relwidth=0.18, relheight=0.08)
+
+    tkt.mainloop()
+
+
+def ge():
+    tkt = Toplevel()
+    tkt.geometry("1350x720")
+    tkt.state('zoomed')
+    tkt.title("railway management system")
+
+    canvas = Canvas(tkt, width=1450, height=750)
+    image = ImageTk.PhotoImage(Image.open("C:\\Users\\Arun Rathore\\PycharmProjects\\RMS\\Train1.jpg"))
+    canvas.create_image(0, 0, anchor=NW, image=image)
+    canvas.pack()
+
+    label_1 = Label(tkt, text="STATION CODE", width=20, font=("bold", 20), bg='#455A64')
+    label_1.place(relx=0.001, rely=0.001, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="STATION NAME", width=20, font=("bold", 20), bg='#455A64')
+    l2.place(relx=0.2, rely=0.001, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="ARRIVAL TIME", width=20, font=("bold", 20), bg='#455A64')
+    l2.place(relx=0.4, rely=0.001, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="DEPARTURE TIME", width=20, font=("bold", 20), bg='#455A64')
+    l2.place(relx=0.6, rely=0.001, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="DISTANCE", width=20, font=("bold", 20), bg='#455A64')
+    l2.place(relx=0.8, rely=0.001, relwidth=0.2, relheight=0.1)
+
+    label_3 = Label(tkt, text="SBC", width=20, font=("bold", 20))
+    label_3.place(relx=0.001, rely=0.1, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="SSPN", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.2, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="DMM", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.3, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="ATP", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.4, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="RC", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.5, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="NGP", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.6, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="BPL", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.7, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="NZM", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.8, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="banglore", width=20, font=("bold", 20))
+    l2.place(relx=0.2, rely=0.10, relwidth=0.2, relheight=0.1)
+
+    label_4 = Label(tkt, text="Starts", width=20, font=("bold", 20))
+    label_4.place(relx=0.4, rely=0.10, relwidth=0.2, relheight=0.1)
+
+    label_5 = Label(tkt, text="20:20", width=20, font=("bold", 20))
+    label_5.place(relx=0.6, rely=0.10, relwidth=0.2, relheight=0.1)
+
+    label_6 = Label(tkt, text="0 km", width=20, font=("bold", 20))
+    label_6.place(relx=0.8, rely=0.10, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="Sai P Nilayam", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.20, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="22:38", width=20, font=("bold", 20))
+    label_7.place(relx=0.4, rely=0.20, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="22:40", width=20, font=("bold", 20))
+    label_7.place(relx=0.6, rely=0.20, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="159 km.", width=20, font=("bold", 20))
+    label_7.place(relx=0.8, rely=0.20, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="Dharamavarm", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.30, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="23:54", width=20, font=("bold", 20))
+    label_7.place(relx=0.4, rely=0.30, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="23:55", width=20, font=("bold", 20))
+    label_7.place(relx=0.6, rely=0.30, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="192 km", width=20, font=("bold", 20))
+    label_7.place(relx=0.8, rely=0.30, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="Anantapur", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.40, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="02:44", width=20, font=("bold", 20))
+    label_7.place(relx=0.4, rely=0.40, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="02:46", width=20, font=("bold", 20))
+    label_7.place(relx=0.6, rely=0.40, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="414 km", width=20, font=("bold", 20))
+    label_7.place(relx=0.8, rely=0.40, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="Raichur", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.50, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="04:44", width=20, font=("bold", 20))
+    label_7.place(relx=0.4, rely=0.50, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="04:45", width=20, font=("bold", 20))
+    label_7.place(relx=0.6, rely=0.50, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="559 km", width=20, font=("bold", 20))
+    label_7.place(relx=0.8, rely=0.50, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="Nagpur", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.60, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="07:35", width=20, font=("bold", 20))
+    label_7.place(relx=0.4, rely=0.60, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="07:36", width=20, font=("bold", 20))
+    label_7.place(relx=0.6, rely=0.60, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="705 km", width=20, font=("bold", 20))
+    label_7.place(relx=0.8, rely=0.60, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="Bhopal", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.70, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="09:28", width=20, font=("bold", 20))
+    label_7.place(relx=0.4, rely=0.70, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="09:30.", width=20, font=("bold", 20))
+    label_7.place(relx=0.6, rely=0.70, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="837 km.", width=20, font=("bold", 20))
+    label_7.place(relx=0.8, rely=0.70, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="Nizamuddin", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.80, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="15:25", width=20, font=("bold", 20))
+    label_7.place(relx=0.4, rely=0.80, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="Ends", width=20, font=("bold", 20))
+    label_7.place(relx=0.6, rely=0.80, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="1282 km", width=20, font=("bold", 20))
+    label_7.place(relx=0.8, rely=0.80, relwidth=0.2, relheight=0.1)
+
+    btn6 = Button(tkt, text='quit', bg='#455A64', font="Courier 30", fg='white', command=tkt.destroy)
+    btn6.place(relx=0.001, rely=0.91, relwidth=0.18, relheight=0.08)
+
+    btn5 = Button(tkt, text='BACK', font="Courier 30", bg='#455A64', fg='white', command=tkt.destroy)
+    btn5.place(relx=0.83, rely=0.91, relwidth=0.18, relheight=0.08)
+
+    tkt.mainloop()
+
+
+def be():
+    tkt = Toplevel()
+    tkt.geometry("1350x720")
+    tkt.state('zoomed')
+    tkt.title("railway management system")
+
+    canvas = Canvas(tkt, width=1450, height=750)
+    image = ImageTk.PhotoImage(Image.open("C:\\Users\\Arun Rathore\\PycharmProjects\\RMS\\Train1.jpg"))
+    canvas.create_image(0, 0, anchor=NW, image=image)
+    canvas.pack()
+
+    label_1 = Label(tkt, text="STATION CODE", width=20, font=("bold", 20), bg='#455A64')
+    label_1.place(relx=0.001, rely=0.001, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="STATION NAME", width=20, font=("bold", 20), bg='#455A64')
+    l2.place(relx=0.2, rely=0.001, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="ARRIVAL TIME", width=20, font=("bold", 20), bg='#455A64')
+    l2.place(relx=0.4, rely=0.001, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="DEPARTURE TIME", width=20, font=("bold", 20), bg='#455A64')
+    l2.place(relx=0.6, rely=0.001, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="DISTANCE", width=20, font=("bold", 20), bg='#455A64')
+    l2.place(relx=0.8, rely=0.001, relwidth=0.2, relheight=0.1)
+
+    label_3 = Label(tkt, text="SBC", width=20, font=("bold", 20))
+    label_3.place(relx=0.001, rely=0.1, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="SSPN", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.2, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="DMM", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.3, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="ATP", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.4, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="RC", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.5, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="NGP", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.6, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="BPL", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.7, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="NZM", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.8, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="banglore", width=20, font=("bold", 20))
+    l2.place(relx=0.2, rely=0.10, relwidth=0.2, relheight=0.1)
+
+    label_4 = Label(tkt, text="Starts", width=20, font=("bold", 20))
+    label_4.place(relx=0.4, rely=0.10, relwidth=0.2, relheight=0.1)
+
+    label_5 = Label(tkt, text="20:20", width=20, font=("bold", 20))
+    label_5.place(relx=0.6, rely=0.10, relwidth=0.2, relheight=0.1)
+
+    label_6 = Label(tkt, text="0 km", width=20, font=("bold", 20))
+    label_6.place(relx=0.8, rely=0.10, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="Sai P Nilayam", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.20, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="22:38", width=20, font=("bold", 20))
+    label_7.place(relx=0.4, rely=0.20, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="22:40", width=20, font=("bold", 20))
+    label_7.place(relx=0.6, rely=0.20, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="159 km.", width=20, font=("bold", 20))
+    label_7.place(relx=0.8, rely=0.20, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="Dharamavarm.", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.30, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="23:54", width=20, font=("bold", 20))
+    label_7.place(relx=0.4, rely=0.30, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="23:55", width=20, font=("bold", 20))
+    label_7.place(relx=0.6, rely=0.30, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="192 km", width=20, font=("bold", 20))
+    label_7.place(relx=0.8, rely=0.30, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="Anantapur", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.40, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="02:44", width=20, font=("bold", 20))
+    label_7.place(relx=0.4, rely=0.40, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="02:46", width=20, font=("bold", 20))
+    label_7.place(relx=0.6, rely=0.40, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="414 km", width=20, font=("bold", 20))
+    label_7.place(relx=0.8, rely=0.40, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="Raichur", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.50, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="04:44", width=20, font=("bold", 20))
+    label_7.place(relx=0.4, rely=0.50, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="04:45", width=20, font=("bold", 20))
+    label_7.place(relx=0.6, rely=0.50, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="559 km", width=20, font=("bold", 20))
+    label_7.place(relx=0.8, rely=0.50, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="Nagpur", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.60, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="07:35", width=20, font=("bold", 20))
+    label_7.place(relx=0.4, rely=0.60, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="07:36", width=20, font=("bold", 20))
+    label_7.place(relx=0.6, rely=0.60, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="705 km", width=20, font=("bold", 20))
+    label_7.place(relx=0.8, rely=0.60, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="Bhopal", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.70, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="09:28", width=20, font=("bold", 20))
+    label_7.place(relx=0.4, rely=0.70, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="09:30", width=20, font=("bold", 20))
+    label_7.place(relx=0.6, rely=0.70, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="837 km", width=20, font=("bold", 20))
+    label_7.place(relx=0.8, rely=0.70, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="Nizamuddin", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.80, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="15:25", width=20, font=("bold", 20))
+    label_7.place(relx=0.4, rely=0.80, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="Ends", width=20, font=("bold", 20))
+    label_7.place(relx=0.6, rely=0.80, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="1282 km", width=20, font=("bold", 20))
+    label_7.place(relx=0.8, rely=0.80, relwidth=0.2, relheight=0.1)
+
+    btn6 = Button(tkt, text='quit', bg='#455A64', font="Courier 30", fg='white', command=tkt.destroy)
+    btn6.place(relx=0.001, rely=0.91, relwidth=0.18, relheight=0.08)
+
+    btn5 = Button(tkt, text='BACK', font="Courier 30", bg='#455A64', fg='white', command=tkt.destroy)
+    btn5.place(relx=0.83, rely=0.91, relwidth=0.18, relheight=0.08)
+
+    tkt.mainloop()
+
+
+def re():
+    tkt = Toplevel()
+    tkt.geometry("1350x720")
+    tkt.state('zoomed')
+    tkt.title("railway management system")
+
+    canvas = Canvas(tkt, width=1450, height=750)
+    image = ImageTk.PhotoImage(Image.open("C:\\Users\\Arun Rathore\\PycharmProjects\\RMS\\Train1.jpg"))
+    canvas.create_image(0, 0, anchor=NW, image=image)
+    canvas.pack()
+
+    label_1 = Label(tkt, text="STATION CODE", width=20, font=("bold", 20), bg='#455A64')
+    label_1.place(relx=0.001, rely=0.001, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="STATION NAME", width=20, font=("bold", 20), bg='#455A64')
+    l2.place(relx=0.2, rely=0.001, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="ARRIVAL TIME", width=20, font=("bold", 20), bg='#455A64')
+    l2.place(relx=0.4, rely=0.001, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="DEPARTURE TIME", width=20, font=("bold", 20), bg='#455A64')
+    l2.place(relx=0.6, rely=0.001, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="DISTANCE", width=20, font=("bold", 20), bg='#455A64')
+    l2.place(relx=0.8, rely=0.001, relwidth=0.2, relheight=0.1)
+
+    label_3 = Label(tkt, text="SBC", width=20, font=("bold", 20))
+    label_3.place(relx=0.001, rely=0.1, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="SSPN", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.2, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="DMM", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.3, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="ATP", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.4, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="RC", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.5, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="NGP", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.6, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="BPL", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.7, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="NZM", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.8, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="banglore", width=20, font=("bold", 20))
+    l2.place(relx=0.2, rely=0.10, relwidth=0.2, relheight=0.1)
+
+    label_4 = Label(tkt, text="Starts", width=20, font=("bold", 20))
+    label_4.place(relx=0.4, rely=0.10, relwidth=0.2, relheight=0.1)
+
+    label_5 = Label(tkt, text="20:20", width=20, font=("bold", 20))
+    label_5.place(relx=0.6, rely=0.10, relwidth=0.2, relheight=0.1)
+
+    label_6 = Label(tkt, text="0 km", width=20, font=("bold", 20))
+    label_6.place(relx=0.8, rely=0.10, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="Sai P Nilayam", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.20, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="22:38", width=20, font=("bold", 20))
+    label_7.place(relx=0.4, rely=0.20, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="22:40", width=20, font=("bold", 20))
+    label_7.place(relx=0.6, rely=0.20, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="159 km.", width=20, font=("bold", 20))
+    label_7.place(relx=0.8, rely=0.20, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="Dharamavarm.", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.30, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="23:54", width=20, font=("bold", 20))
+    label_7.place(relx=0.4, rely=0.30, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="23:55", width=20, font=("bold", 20))
+    label_7.place(relx=0.6, rely=0.30, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="192 km", width=20, font=("bold", 20))
+    label_7.place(relx=0.8, rely=0.30, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="Anantapur", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.40, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="02:44", width=20, font=("bold", 20))
+    label_7.place(relx=0.4, rely=0.40, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="02:46", width=20, font=("bold", 20))
+    label_7.place(relx=0.6, rely=0.40, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="414 km", width=20, font=("bold", 20))
+    label_7.place(relx=0.8, rely=0.40, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="Raichur", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.50, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="04:44", width=20, font=("bold", 20))
+    label_7.place(relx=0.4, rely=0.50, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="04:45", width=20, font=("bold", 20))
+    label_7.place(relx=0.6, rely=0.50, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="559 km", width=20, font=("bold", 20))
+    label_7.place(relx=0.8, rely=0.50, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="Nagpur", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.60, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="07:35", width=20, font=("bold", 20))
+    label_7.place(relx=0.4, rely=0.60, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="07:36", width=20, font=("bold", 20))
+    label_7.place(relx=0.6, rely=0.60, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="705 km", width=20, font=("bold", 20))
+    label_7.place(relx=0.8, rely=0.60, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="Bhopal", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.70, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="09:28", width=20, font=("bold", 20))
+    label_7.place(relx=0.4, rely=0.70, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="09:30.", width=20, font=("bold", 20))
+    label_7.place(relx=0.6, rely=0.70, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="837 km.", width=20, font=("bold", 20))
+    label_7.place(relx=0.8, rely=0.70, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="Nizamuddin", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.80, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="15:25", width=20, font=("bold", 20))
+    label_7.place(relx=0.4, rely=0.80, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="Ends", width=20, font=("bold", 20))
+    label_7.place(relx=0.6, rely=0.80, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="1282 km", width=20, font=("bold", 20))
+    label_7.place(relx=0.8, rely=0.80, relwidth=0.2, relheight=0.1)
+
+    btn6 = Button(tkt, text='quit', bg='#455A64', font="Courier 30", fg='white', command=tkt.destroy)
+    btn6.place(relx=0.001, rely=0.91, relwidth=0.18, relheight=0.08)
+
+    btn5 = Button(tkt, text='BACK', font="Courier 30", bg='#455A64', fg='white', command=tkt.destroy)
+    btn5.place(relx=0.83, rely=0.91, relwidth=0.18, relheight=0.08)
+
+    tkt.mainloop()
+
+
+def train():
+    emplwn = Toplevel()
+    emplwn.geometry("1350x720")
+    emplwn.title("RAILWAY MANAGEMENT SYSTEM")
+    emplwn.state('zoomed')
+
+    canvas = Canvas(emplwn, width=1450, height=750)
+    image = ImageTk.PhotoImage(Image.open("C:\\Users\\Arun Rathore\\PycharmProjects\\RMS\\Train1.jpg"))
+    canvas.create_image(0, 0, anchor=NW, image=image)
+    canvas.pack()
+
+    headingframe1 = Frame(emplwn, bg="#333945", bd=5)
+    headingframe1.place(relx=0.25, rely=0.1, relwidth=0.5, relheight=0.13)
+
+    headingframe2 = Frame(headingframe1, bg="#EAF0F1")
+    headingframe2.place(relx=0.01, rely=0.05, relwidth=0.98, relheight=0.9)
+
+    headinglabel = Label(headingframe2, text="TRAIN SCHEDULE", font="Courier 30 bold", fg='black')
+    headinglabel.place(relx=0.25, rely=0.15, relwidth=0.5, relheight=0.5)
+
+    btn1 = Button(emplwn, text="Rajdhani Express", font="Courier 30", bg='black', fg='white', command=re)
+    btn1.place(relx=0.28, rely=0.3, relwidth=0.45, relheight=0.1)
+
+    btn2 = Button(emplwn, text="Bikaner Express", font="Courier 30", bg='black', fg='white', command=be)
+    btn2.place(relx=0.28, rely=0.4, relwidth=0.45, relheight=0.1)
+
+    btn3 = Button(emplwn, text="Gatiman Express", font="Courier 30", bg='black', fg='white', command=ge)
+    btn3.place(relx=0.28, rely=0.5, relwidth=0.45, relheight=0.1)
+
+    btn4 = Button(emplwn, text="Nizamuddin Duronto Express", bg='black', font="Courier 30", fg='white', command=ne)
+    btn4.place(relx=0.28, rely=0.6, relwidth=0.45, relheight=0.1)
+
+    btn5 = Button(emplwn, text="Island Express", font="Courier 30", bg='black', fg='white', command=ie)
+    btn5.place(relx=0.28, rely=0.7, relwidth=0.45, relheight=0.1)
+
+    backbtn = Button(emplwn, text="<  BACK", bg='#455A64', font="Courier 30 bold" , fg='white', command=emplwn.destroy)
+    backbtn.place(relx=0.5, rely=0.9, relwidth=0.18, relheight=0.08)
+
+    emplwn.mainloop()
+
+
+def write():
+    conn = pymysql.connect(host="localhost", user="root", password="root", database="rail")
+    c = conn.cursor()
+    mycursor = conn.cursor()
+
+    sql = "INSERT INTO passengers (mob, pname, trname, source, destination, amount) VALUES (%s, %s, %s, %s, %s, %s)"
+    val = (mob.get(), pname.get(), trname.get(), source.get(), destination.get(), amount.get())
+    mycursor.execute(sql, val)
+    ticket_success()
+    conn.commit()
+
+
+def ticket_success():
+    global ticket_success_screen   # make login_success_screen global
+    ticket_success_screen = Toplevel()
+    ticket_success_screen.title("Success")
+    ticket_success_screen.geometry("350x150")
+    ticket_success_screen.anchor("e")
+    Label(ticket_success_screen, text="Your Ticket is Booked Successfully!").pack()
+
+    Button(ticket_success_screen, text="OK", command=delete_ticket_success).pack()
+
+
+def delete_ticket_success():
+    login_success_screen.destroy()
+    detail()
+
+
+
+def rticket():
+    tkt = Toplevel()
+    tkt.geometry("1350x720")
+    tkt.state('zoomed')
+    tkt.title("railway management system")
+    canvas = Canvas(tkt, width=1450, height=750)
+    image = ImageTk.PhotoImage(Image.open("C:\\Users\\Arun Rathore\\PycharmProjects\\RMS\\Train1.jpg"))
+    canvas.create_image(0, 0, anchor=NW, image=image)
+    canvas.pack()
+
+    global pname
+    global mob
+    global trname
+    global source
+    global destination
+    global amount
+
+    pname = StringVar()
+    mob = StringVar()
+    trname = StringVar()
+    source = StringVar()
+    destination = StringVar()
+    amount = StringVar()
+
+    label_1 = Label(tkt, text="passenger name", width=20, font=("bold", 20))
+    label_1.place(relx=0.28, rely=0.1, relwidth=0.2, relheight=0.1)
+
+    entry_1 = Entry(tkt, textvariable=pname, font="Courier 25")
+    entry_1.place(relx=0.53, rely=0.1, relwidth=0.2, relheight=0.1)
+
+    label_3 = Label(tkt, text="mobile no.", width=20, font=("bold", 20))
+    label_3.place(relx=0.28, rely=0.2, relwidth=0.2, relheight=0.1)
+
+    entry_3 = Entry(tkt, textvariable=mob, font="Courier 25")
+    entry_3.place(relx=0.53, rely=0.2, relwidth=0.2, relheight=0.1)
+
+    label_4 = Label(tkt, text="train name", width=20, font=("bold", 20))
+    label_4.place(relx=0.28, rely=0.3, relwidth=0.2, relheight=0.1)
+
+    entry_4 = Entry(tkt, textvariable=trname, font="Courier 25")
+    entry_4.place(relx=0.53, rely=0.3, relwidth=0.2, relheight=0.1)
+
+    label_5= Label(tkt, text="source", width=20, font=("bold", 20))
+    label_5.place(relx=0.28, rely=0.4, relwidth=0.2, relheight=0.1)
+
+    entry_5 = Entry(tkt, textvariable=source, font="Courier 25")
+    entry_5.place(relx=0.53, rely=0.4, relwidth=0.2, relheight=0.1)
+
+    label_6 = Label(tkt, text="destination", width=20, font=("bold", 20))
+    label_6.place(relx=0.28, rely=0.5, relwidth=0.2, relheight=0.1)
+
+    entry_6 = Entry(tkt, textvariable=destination, font="Courier 25")
+    entry_6.place(relx=0.53, rely=0.5, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="amount.", width=20, font=("bold", 20))
+    label_7.place(relx=0.28, rely=0.6, relwidth=0.2, relheight=0.1)
+
+    entry_7 = Entry(tkt, textvariable=amount, font="Courier 25")
+    entry_7.place(relx=0.53, rely=0.6, relwidth=0.2, relheight=0.1)
+
+    btn6 = Button(tkt, text='SAVE DETAIL', bg='#455A64', font="Courier 30", fg='white', command=write)
+    btn6.place(relx=0.28, rely=0.9, relwidth=0.18, relheight=0.08)
+
+    btn5 = Button(tkt, text='BACK', font="Courier 30", bg='#455A64', fg='white', command=tkt.destroy)
+    btn5.place(relx=0.53, rely=0.9, relwidth=0.18, relheight=0.08)
+
+    tkt.mainloop()
+
+
+def ticket():
+    tkt = Toplevel()
+    tkt.geometry("1350x720")
+    tkt.state('zoomed')
+    tkt.title("railway management system")
+    canvas = Canvas(tkt, width=1450, height=750)
+    image = ImageTk.PhotoImage(Image.open("C:\\Users\\Arun Rathore\\PycharmProjects\\RMS\\Train1.jpg"))
+    canvas.create_image(0, 0, anchor=NW, image=image)
+    canvas.pack()
+
+    global pname
+    global mob
+    global trname
+    global source
+    global destination
+    global amount
+
+    pname = StringVar()
+    mob = StringVar()
+    trname = StringVar()
+    source = StringVar()
+    destination = StringVar()
+    amount = StringVar()
+
+    label_1 = Label(tkt, text="passenger name", width=20, font=("bold", 20))
+    label_1.place(relx=0.28, rely=0.1, relwidth=0.2, relheight=0.1)
+
+    entry_1 = Entry(tkt, textvariable=pname, font="Courier 25")
+    entry_1.place(relx=0.53, rely=0.1, relwidth=0.2, relheight=0.1)
+
+    label_3 = Label(tkt, text="mobile no.", width=20, font=("bold", 20))
+    label_3.place(relx=0.28, rely=0.2, relwidth=0.2, relheight=0.1)
+
+    entry_3 = Entry(tkt, textvariable=mob, font="Courier 25")
+    entry_3.place(relx=0.53, rely=0.2, relwidth=0.2, relheight=0.1)
+
+    label_4 = Label(tkt, text="train name", width=20, font=("bold", 20))
+    label_4.place(relx=0.28, rely=0.3, relwidth=0.2, relheight=0.1)
+
+    entry_4 = Entry(tkt, textvariable=trname, font="Courier 25")
+    entry_4.place(relx=0.53, rely=0.3, relwidth=0.2, relheight=0.1)
+
+    label_5= Label(tkt, text="source", width=20, font=("bold", 20))
+    label_5.place(relx=0.28, rely=0.4, relwidth=0.2, relheight=0.1)
+
+    entry_5 = Entry(tkt, textvariable=source, font="Courier 25")
+    entry_5.place(relx=0.53, rely=0.4, relwidth=0.2, relheight=0.1)
+
+    label_6 = Label(tkt, text="destination", width=20, font=("bold", 20))
+    label_6.place(relx=0.28, rely=0.5, relwidth=0.2, relheight=0.1)
+
+    entry_6 = Entry(tkt, textvariable=destination, font="Courier 25")
+    entry_6.place(relx=0.53, rely=0.5, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="amount.", width=20, font=("bold", 20))
+    label_7.place(relx=0.28, rely=0.6, relwidth=0.2, relheight=0.1)
+
+    entry_7 = Entry(tkt, textvariable=amount, font="Courier 25")
+    entry_7.place(relx=0.53, rely=0.6, relwidth=0.2, relheight=0.1)
+
+    btn6 = Button(tkt, text='SAVE DETAIL', bg='#455A64', font="Courier 30", fg='white', command=write)
+    btn6.place(relx=0.28, rely=0.9, relwidth=0.18, relheight=0.08)
+
+    btn5 = Button(tkt, text='BACK', font="Courier 30", bg='#455A64', fg='white', command=tkt.destroy)
+    btn5.place(relx=0.53, rely=0.9, relwidth=0.18, relheight=0.08)
+
+    tkt.mainloop()
+
+
+def show_ticket():
+    connection = pymysql.connect(host='localhost', database='rail', user='root', password='root')
+
+    sql_select_Query = "select * from passengers"
+    cursor = connection.cursor()
+    cursor.execute(sql_select_Query)
+    records = cursor.fetchall()
+
+    scores = Tk()
+    label = Label(scores, text="Show Booking Detail", font=("Arial", 30)).grid(row=0, columnspan=3)
+    cols = ('Mobile Number', 'Name', 'Train Name', 'Source', 'Destination', 'Amount')
+    listBox = Treeview(scores, columns=cols, show='headings')
+
+    for i in records:
+            listBox.insert("", "end", values=i)
+
+    for col in cols:
+        listBox.heading(col, text=col)
+        listBox.grid(row=1, column=0, columnspan=2)
+
+    closebutton = Button(scores, text="Close", width=15, command=scores.destroy).grid(row=4, column=1)
+
+    scores.mainloop()
+
+
+def sp():
+    tkt = Toplevel()
+    tkt.geometry("1350x720")
+    tkt.state('zoomed')
+    # master.destroy()
+    tkt.title("railway management system")
+    canvas = Canvas(tkt, width=1450, height=750)
+    image = ImageTk.PhotoImage(Image.open("C:\\Users\\Arun Rathore\\PycharmProjects\\RMS\\meal-plan4.jpg"))
+    canvas.create_image(0, 0, anchor=NW, image=image)
+    canvas.pack()
+
+    label_1 = Label(tkt, text="ITEM", width=20, font=("bold", 20), fg="red")
+    label_1.place(relx=0.001, rely=0.001, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="PRICE", width=20, font=("bold", 20), fg="red")
+    l2.place(relx=0.2, rely=0.001, relwidth=0.2, relheight=0.1)
+
+    label_3 = Label(tkt, text="DAL", width=20, font=("bold", 20))
+    label_3.place(relx=0.001, rely=0.1, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="RICE", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.2, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="ROTI", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.3, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="BUTTER ROTI", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.4, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="ALLO GOBHI", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.5, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="ALLO MATAR", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.6, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="ALLO PALAK", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.7, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="RAITA", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.8, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="40.00", width=20, font=("bold", 20))
+    l2.place(relx=0.2, rely=0.10, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="40.00", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.20, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="5.00", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.30, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="7.00", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.40, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="40.00", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.50, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="40.00", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.60, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="40.00", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.70, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="10.00", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.80, relwidth=0.2, relheight=0.1)
+
+    btn6 = Button(tkt, text='quit', bg='#455A64', font="Courier 30", fg='white', command=tkt.destroy)
+    btn6.place(relx=0.001, rely=0.91, relwidth=0.18, relheight=0.08)
+
+    btn5 = Button(tkt, text='BACK', font="Courier 30", bg='#455A64', fg='white', command=tkt.destroy)
+    btn5.place(relx=0.83, rely=0.91, relwidth=0.18, relheight=0.08)
+
+    tkt.mainloop()
+
+
+def mp():
+    tkt = Toplevel()
+    tkt.geometry("1350x720")
+    tkt.state('zoomed')
+    # master.destroy()
+    tkt.title("railway management system")
+    canvas = Canvas(tkt, width=1450, height=750)
+    image = ImageTk.PhotoImage(Image.open("C:\\Users\\Arun Rathore\\PycharmProjects\\RMS\\meal-plan2.jpg"))
+    canvas.create_image(0, 0, anchor=NW, image=image)
+    canvas.pack()
+
+    label_1 = Label(tkt, text="ITEM", width=20, font=("bold", 20), fg="red")
+    label_1.place(relx=0.001, rely=0.001, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="PRICE", width=20, font=("bold", 20), fg="red")
+    l2.place(relx=0.2, rely=0.001, relwidth=0.2, relheight=0.1)
+
+    label_3 = Label(tkt, text="DAL FRY", width=20, font=("bold", 20))
+    label_3.place(relx=0.001, rely=0.1, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="RICE FRY", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.2, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="BUTTER ROTI", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.3, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="RAITA", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.4, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="SALAD", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.5, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="SAHI PANEER", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.6, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="MATAR PANEER", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.7, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="CHAP", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.8, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="50.00", width=20, font=("bold", 20))
+    l2.place(relx=0.2, rely=0.10, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="50.00", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.20, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="7.00", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.30, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="5.00", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.40, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="10.00", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.50, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="100.00", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.60, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="90.00", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.70, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="120.00", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.80, relwidth=0.2, relheight=0.1)
+
+    btn6 = Button(tkt, text='quit', bg='#455A64', font="Courier 30", fg='white', command=tkt.destroy)
+    btn6.place(relx=0.001, rely=0.91, relwidth=0.18, relheight=0.08)
+
+    btn5 = Button(tkt, text='BACK', font="Courier 30", bg='#455A64', fg='white', command=tkt.destroy)
+    btn5.place(relx=0.83, rely=0.91, relwidth=0.18, relheight=0.08)
+
+    tkt.mainloop()
+
+
+def hp():
+    tkt = Toplevel()
+    tkt.geometry("1350x720")
+    tkt.state('zoomed')
+
+    tkt.title("railway management system")
+    canvas = Canvas(tkt, width=1450, height=750)
+    image = ImageTk.PhotoImage(Image.open("C:\\Users\\Arun Rathore\\PycharmProjects\\RMS\\meal-plan3.jpg"))
+    canvas.create_image(0, 0, anchor=NW, image=image)
+    canvas.pack()
+
+    label_3 = Label(tkt, text="DAL FRY", width=20, font=("bold", 20))
+    label_3.place(relx=0.001, rely=0.1, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="RICE FRY", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.2, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="BUTTER ROTI", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.3, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="RAITA", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.4, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="SALAD", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.5, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="SAHI PANEER", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.6, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="MATAR PANEER", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.7, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="CHAP", width=20, font=("bold", 20))
+    l2.place(relx=0.001, rely=0.8, relwidth=0.2, relheight=0.1)
+
+    l2 = Label(tkt, text="50.00", width=20, font=("bold", 20))
+    l2.place(relx=0.2, rely=0.10, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="50.00", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.20, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="7.00", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.30, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="5.00", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.40, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="10.00", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.50, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="100.00", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.60, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="90.00", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.70, relwidth=0.2, relheight=0.1)
+
+    label_7 = Label(tkt, text="120.00", width=20, font=("bold", 20))
+    label_7.place(relx=0.2, rely=0.80, relwidth=0.2, relheight=0.1)
+
+    btn6 = Button(tkt, text='quit', bg='#455A64', font="Courier 30", fg='white', command=tkt.destroy)
+    btn6.place(relx=0.001, rely=0.91, relwidth=0.18, relheight=0.08)
+
+    btn5 = Button(tkt, text='BACK', font="Courier 30", bg='#455A64', fg='white', command=tkt.destroy)
+    btn5.place(relx=0.83, rely=0.91, relwidth=0.18, relheight=0.08)
+
+    tkt.mainloop()
+
+
+def meal():
+    ml = Toplevel()
+    ml.geometry("1350x720")
+    ml.title("RAILWAY MANAGEMENT SYSTEM")
+    ml.state('zoomed')
+
+    canvas = Canvas(ml, width=1450, height=750)
+    image = ImageTk.PhotoImage(Image.open("C:\\Users\\Arun Rathore\\PycharmProjects\\RMS\\meal-plan1.jpg"))
+    canvas.create_image(0, 0, anchor=NW, image=image)
+    canvas.pack()
+
+    headingframe1 = Frame(ml, bg="#333945", bd=5)
+    headingframe1.place(relx=0.25, rely=0.1, relwidth=0.5, relheight=0.13)
+
+    headingframe2 = Frame(headingframe1, bg="#EAF0F1")
+    headingframe2.place(relx=0.01, rely=0.05, relwidth=0.98, relheight=0.9)
+
+    headinglabel = Label(headingframe2, text="TRAIN MEAL SHEDULE", font="Courier 30 bold", fg='black')
+    headinglabel.place(relx=0.25, rely=0.15, relwidth=0.5, relheight=0.5)
+
+    btn1 = Button(ml, text="SMALL PRICE THALI", font="Courier 30", bg='black', fg='white', command=sp)
+    btn1.place(relx=0.28, rely=0.3, relwidth=0.45, relheight=0.1)
+
+    btn2 = Button(ml, text="MEDIUM PRICE THALI", font="Courier 30", bg='black', fg='white', command=mp)
+    btn2.place(relx=0.28, rely=0.4, relwidth=0.45, relheight=0.1)
+
+    btn3 = Button(ml, text="HIGH PRICE THALI", font="Courier 30", bg='black', fg='white', command=hp)
+    btn3.place(relx=0.28, rely=0.5, relwidth=0.45, relheight=0.1)
+
+    backbtn = Button(ml, text="<  BACK", bg='#455A64', font="Courier 30 bold", fg='white', command=ml.destroy)
+    backbtn.place(relx=0.5, rely=0.9, relwidth=0.18, relheight=0.08)
+
+    ml.mainloop()
+
+
+def news():
+    dtl = Toplevel()
+    dtl.geometry("1350x720")
+    dtl.state("zoomed")
+    dtl.title("railway management system")
+
+    l_title = Label(dtl, text="RAILWAY MANAGEMENT\n SYSTEM", relief="raised", width=2000, padx=600, pady=0, fg="white",
+                    bg="#162447", justify="center", anchor="center")
+
+    l_title.config(font=("arial", "50", "bold"))
+    l_title.pack(side="top")
+
+    canvas = Canvas(dtl, width=1450, height=750)
+    image = ImageTk.PhotoImage(Image.open("C:\\Users\\Arun Rathore\\PycharmProjects\\RMS\\Screenshot.png"))
+    canvas.create_image(0, 0, anchor=NW, image=image)
+    canvas.pack()
+
+    btn5 = Button(dtl, text="QUIT", width=15, font="Courier 30 bold", bg='black', fg='white', command=dtl.destroy)
+    btn5.place(x=300, y=600)
+    dtl.mainloop()
+
+#def rticket():
+
+
+def detail():
+    dtl = Toplevel()
+    dtl.geometry("1350x720")
+    dtl.state("zoomed")
+    dtl.title("railway management system")
+
+    l_title = Label(dtl, text="RAILWAY MANAGEMENT\n SYSTEM", relief="raised", width=2000, padx=600, pady=0, fg="white",
+                    bg="#162447", justify="center", anchor="center")
+
+    l_title.config(font=("arial", "50", "bold"))
+    l_title.pack(side="top")
+
+    canvas = Canvas(dtl, width=1450, height=750)
+    image = ImageTk.PhotoImage(Image.open("C:\\Users\\Arun Rathore\\PycharmProjects\\RMS\\Train1.jpg"))
+    canvas.create_image(0, 0, anchor=NW, image=image)
+    canvas.pack()
+
+    b1 = Button(dtl, text="TICKET BOOKING", width=15, font="Courier 30 bold", bg='black', fg='white', command=ticket)
+    b2 = Button(dtl, text="TRAIN SCHEDULE", font="Courier 30 bold", bg='black', fg='white', command=train)
+    b3 = Button(dtl, text="Latest News", font="Courier 30 bold", bg='black', fg='white', command=news)
+    b4 = Button(dtl, text="MEAL BOOKING", font="Courier 30 bold", bg='black', fg='white', command=meal)
+    b6 = Button(dtl, text="Show Booking", font="Courier 30 bold", bg='black', fg='white', command=show_ticket)
+    btn5 = Button(dtl, text="LogOut", width=10, font="Courier 30 bold", bg='black', fg='white', command=dtl.destroy)
+    b7 = Button(dtl, text="RESERVATION", width=15, font="Courier 30 bold", bg='black', fg='white', command=rticket)
+
+    b1.place(x=300, y=200)
+    b2.place(x=900, y=200)
+    b3.place(x=300, y=400)
+    b4.place(x=900, y=400)
+    b6.place(x=900, y=600)
+    btn5.place(x=1100, y=50)
+    b7.place(x=300, y=600)
+    dtl.mainloop()
+
+
+def login_verification():
+    username = str1.get()
+    password = str2.get()
+
+    if username == 'admin' and password == 'admin':
+        login_success()
+    else:
+        user_not_found()
+
+
+def login_success():
+    global login_success_screen   # make login_success_screen global
+    login_success_screen = Toplevel()
+    login_success_screen.title("Success")
+    login_success_screen.geometry("350x150")
+    login_success_screen.anchor("e")
+    Label(login_success_screen, text="Login Success").pack()
+
+    Button(login_success_screen, text="OK", command=delete_login_success).pack()
+
+
+def delete_login_success():
+    login_success_screen.destroy()
+    detail()
+
+
+def user_not_found():
+    global user_not_found_screen
+    user_not_found_screen = Toplevel()
+    user_not_found_screen.title("Success")
+    user_not_found_screen.geometry("350x150")
+    Label(user_not_found_screen, text="User Not Found").pack()
+    Button(user_not_found_screen, text="OK", command=delete_user_not_found_screen).pack()
+
+
+def delete_user_not_found_screen():
+    user_not_found_screen.destroy()
+
+
+def login():
+    global root
+    root = Toplevel()
+    root.geometry("1350x720")
+    root.state("zoomed")
+    root.title("Admin Login")
+    root.resizable(TRUE, TRUE)
+
+    canvas = Canvas(root, width=1350, height=720)
+    image = ImageTk.PhotoImage(Image.open("C:\\Users\\Arun Rathore\\PycharmProjects\\RMS\\rail1.jpg"))
+    canvas.create_image(0, 0, anchor=NW, image=image)
+    canvas.pack()
+
+    global str1
+    global str2
+
+    str1 = StringVar()
+    str2 = StringVar()
+
+    label_1 = Label(root, text="* Username *", width=20, font=("bold", 20))
+    label_1.place(relx=0.28, rely=0.3, relwidth=0.2, relheight=0.1)
+
+    entry_1 = Entry(root, textvariable=str1, font="Courier 25")
+    entry_1.place(relx=0.53, rely=0.3, relwidth=0.2, relheight=0.1)
+
+    label_3 = Label(root, text="* Password *", width=20, font=("bold", 20))
+    label_3.place(relx=0.28, rely=0.5, relwidth=0.2, relheight=0.1)
+
+    entry_3 = Entry(root, textvariable=str2, font="Courier 25", show='*')
+    entry_3.place(relx=0.53, rely=0.5, relwidth=0.2, relheight=0.1)
+
+    btn6 = Button(root, text='SUBMIT', bg='#455A64', font="Courier 30", fg='white', command=login_verification)
+    btn6.place(relx=0.28, rely=0.7, relwidth=0.18, relheight=0.08)
+
+    root.mainloop()
+
+
+def Mainmenu():
+        global rootwn
+        rootwn = Tk()
+        rootwn.geometry("1350x720")
+        rootwn.state("zoomed")
+        rootwn.title("railway management system")
+        fr1 = Frame(rootwn)
+        fr1.pack(side="top")
+
+        l_title = Label(rootwn, text="RAILWAY MANAGEMENT\n SYSTEM", relief="raised", width=2000, padx=600, pady=0,
+                        fg="white", bg="#162447", justify="center", anchor="center")
+        l_title.config(font=("arial", "50", "bold"))
+        l_title.pack(side="top")
+
+        canvas = Canvas(rootwn, width=1450, height=750)
+        image = ImageTk.PhotoImage(Image.open("C:\\Users\\Arun Rathore\\PycharmProjects\\RMS\\Train1.jpg"))
+        canvas.create_image(0, 0, anchor=NW, image=image)
+        canvas.pack()
+
+        b1 = Button(rootwn, text="LOGIN", width=15, font="Courier 30 bold", bg='white', fg='black', command=login)
+        b6 = Button(rootwn, text="QUIT", width=15, font="Courier 30 bold", bg='white', fg='black', command=rootwn.destroy)
+
+        b1.place(x=100, y=300)
+        b6.place(x=100, y=500)
+        rootwn.mainloop()
+
+Mainmenu()
+
+
